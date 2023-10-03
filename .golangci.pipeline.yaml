@@ -28,13 +28,33 @@ linters-settings:
   goconst:
     min-len:         2
     min-occurrences: 2
-  goimports:
-    local-prefixes: github.com/Bdido86/chat-server
+  revive:
+    rules:
+      - name: exported
+        disabled: true
+  gofumpt:
+    module-path: github.com/Bdido86/chat-server
+    extra-rules: true
  
 linters:
   enable-all: true
-  #disable:
-  #  - asasalint
+  disable:
+    - varcheck
+    - nosnakecase
+    - interfacer
+    - ifshort
+    - scopelint
+    - deadcode
+    - exhaustivestruct
+    - maligned
+    - golint
+    - structcheck
+    - depguard
+    - gci
+    - godot
+    - exhaustruct
+    - godox
+    - goimports
 
 issues:
   exclude-use-default: false
