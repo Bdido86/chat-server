@@ -3,7 +3,7 @@ package app
 import (
 	"context"
 	"fmt"
-	"log"
+	"log/slog"
 	"net"
 
 	"github.com/Bdido86/chat-server/pkg/api/chat_v1"
@@ -68,7 +68,7 @@ func (a *App) initGRPCServer(_ context.Context) error {
 }
 
 func (a *App) runGRPCServer() error {
-	log.Printf("GRPC server is starting on %s", url)
+	slog.Info("GRPC server is starting on:", "url", url)
 
 	list, err := net.Listen("tcp", url)
 	if err != nil {
